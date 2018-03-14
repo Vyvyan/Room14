@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour {
     public Quaternion startingROT;
     public Vector3 placeToMoveTo;
     public GameObject winImage;
+    public GameObject winLIGHT, normalLIGHT, ratLIGHT;
     public bool isMoving;
     bool hasWon;
     bool isDead;
@@ -27,6 +28,11 @@ public class Movement : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        winLIGHT.SetActive(false);
+        winImage.SetActive(false);
+        normalLIGHT.SetActive(true);
+        ratLIGHT.SetActive(true);
+
         startingPOS = gameObject.transform.position;
         startingROT = gameObject.transform.rotation;
         rb = GetComponent<Rigidbody>();
@@ -221,13 +227,17 @@ public class Movement : MonoBehaviour {
             StartCoroutine(DieAndRespawn());
         }
 
-        if (other.gameObject.tag == "Good")
+
+        if (!hasWon)
         {
-            Debug.Log("WE WIN!");
-            winImage.SetActive(true);
-            //Destroy(other.gameObject);
-            hasWon = true;
-            anim.SetTrigger("Win");
+            if (other.gameObject.tag == "Good")
+            {
+                Debug.Log("WE WIN!");
+                //Destroy(other.gameObject);
+                hasWon = true;
+                anim.SetTrigger("Win");
+                StartCoroutine(WaitThenChangeLights());
+            }
         }
     }
 
@@ -243,5 +253,14 @@ public class Movement : MonoBehaviour {
         gameObject.transform.rotation = startingROT;
         anim.SetTrigger("Respawn");
         isDead = false;
+    }
+
+    IEnumerator WaitThenChangeLights()
+    {
+        ratLIGHT.SetActive(false);
+        yield return new WaitForSeconds(3);
+        normalLIGHT.SetActive(false);
+        winLIGHT.SetActive(true);
+        winImage.SetActive(true);
     }
 }

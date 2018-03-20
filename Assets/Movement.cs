@@ -15,9 +15,13 @@ public class Movement : MonoBehaviour {
     public bool isMoving;
     bool hasWon;
     bool isDead;
+    bool turnWinTiles;
+    public float winTileSpinSpeed;
     Rigidbody rb;
     Vector3 UProt, DOWNrot, LEFTrot, RIGHTrot;
     int turnDirection; // 0none, 1up 2down 3left 4right
+
+    public GameObject winTile1, winTile2, winTile3;
 
     Animator anim;
 
@@ -48,6 +52,7 @@ public class Movement : MonoBehaviour {
 
         hasWon = false;
         isDead = false;
+        turnWinTiles = false;
 
         anim = GetComponent<Animator>();
     }
@@ -55,6 +60,13 @@ public class Movement : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if (turnWinTiles)
+        {
+            winTile1.transform.rotation = Quaternion.SlerpUnclamped(winTile1.transform.rotation, Quaternion.Euler(Vector3.zero), winTileSpinSpeed * Time.deltaTime);
+            winTile2.transform.rotation = Quaternion.SlerpUnclamped(winTile2.transform.rotation, Quaternion.Euler(Vector3.zero), (winTileSpinSpeed * .8f) * Time.deltaTime);
+            winTile3.transform.rotation = Quaternion.SlerpUnclamped(winTile3.transform.rotation, Quaternion.Euler(Vector3.zero), (winTileSpinSpeed * 1.3f) * Time.deltaTime);
+        }
+
         if (!isDead)
         {
             if (!hasWon)
@@ -257,10 +269,7 @@ public class Movement : MonoBehaviour {
 
     IEnumerator WaitThenChangeLights()
     {
-        ratLIGHT.SetActive(false);
-        yield return new WaitForSeconds(3);
-        normalLIGHT.SetActive(false);
-        winLIGHT.SetActive(true);
-        winImage.SetActive(true);
+        yield return new WaitForSeconds(1);
+        turnWinTiles = true;
     }
 }

@@ -104,124 +104,252 @@ public class Movement : MonoBehaviour {
                 else
                 {
                     anim.SetBool("Walk", false);
-                    if (playerNumber == 1)
+
+                    if (!GameManager.areControlsSwapped)
                     {
-                        if (Input.GetKey(KeyCode.W))
+                        if (playerNumber == 1)
                         {
-                            placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 4);
-                            turnDirection = 1;
-                            isMoving = true;
-                        }
+                            if (Input.GetKey(KeyCode.W))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 4);
+                                turnDirection = 1;
+                                isMoving = true;
+                            }
 
-                        if (Input.GetKey(KeyCode.A))
-                        {
-                            placeToMoveTo = new Vector3(gameObject.transform.position.x - 4, gameObject.transform.position.y, gameObject.transform.position.z);
-                            turnDirection = 3;
-                            isMoving = true;
-                        }
+                            if (Input.GetKey(KeyCode.A))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x - 4, gameObject.transform.position.y, gameObject.transform.position.z);
+                                turnDirection = 3;
+                                isMoving = true;
+                            }
 
-                        if (Input.GetKey(KeyCode.S))
-                        {
-                            placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 4);
-                            turnDirection = 2;
-                            isMoving = true;
-                        }
+                            if (Input.GetKey(KeyCode.S))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 4);
+                                turnDirection = 2;
+                                isMoving = true;
+                            }
 
-                        if (Input.GetKey(KeyCode.D))
+                            if (Input.GetKey(KeyCode.D))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x + 4, gameObject.transform.position.y, gameObject.transform.position.z);
+                                turnDirection = 4;
+                                isMoving = true;
+                            }
+                        }
+                        if (playerNumber == 2)
                         {
-                            placeToMoveTo = new Vector3(gameObject.transform.position.x + 4, gameObject.transform.position.y, gameObject.transform.position.z);
-                            turnDirection = 4;
-                            isMoving = true;
+                            if (Input.GetKey(KeyCode.T))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 4);
+                                turnDirection = 1;
+                                isMoving = true;
+                            }
+
+                            if (Input.GetKey(KeyCode.F))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x - 4, gameObject.transform.position.y, gameObject.transform.position.z);
+                                turnDirection = 3;
+                                isMoving = true;
+                            }
+
+                            if (Input.GetKey(KeyCode.G))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 4);
+                                turnDirection = 2;
+                                isMoving = true;
+                            }
+
+                            if (Input.GetKey(KeyCode.H))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x + 4, gameObject.transform.position.y, gameObject.transform.position.z);
+                                turnDirection = 4;
+                                isMoving = true;
+                            }
+                        }
+                        if (playerNumber == 3)
+                        {
+                            if (Input.GetKey(KeyCode.I))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 4);
+                                turnDirection = 1;
+                                isMoving = true;
+                            }
+
+                            if (Input.GetKey(KeyCode.J))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x - 4, gameObject.transform.position.y, gameObject.transform.position.z);
+                                turnDirection = 3;
+                                isMoving = true;
+                            }
+
+                            if (Input.GetKey(KeyCode.K))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 4);
+                                turnDirection = 2;
+                                isMoving = true;
+                            }
+
+                            if (Input.GetKey(KeyCode.L))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x + 4, gameObject.transform.position.y, gameObject.transform.position.z);
+                                turnDirection = 4;
+                                isMoving = true;
+                            }
+                        }
+                        if (playerNumber == 4)
+                        {
+                            if (Input.GetKey(KeyCode.UpArrow))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 4);
+                                turnDirection = 1;
+                                isMoving = true;
+                            }
+
+                            if (Input.GetKey(KeyCode.LeftArrow))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x - 4, gameObject.transform.position.y, gameObject.transform.position.z);
+                                turnDirection = 3;
+                                isMoving = true;
+                            }
+
+                            if (Input.GetKey(KeyCode.DownArrow))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 4);
+                                turnDirection = 2;
+                                isMoving = true;
+                            }
+
+                            if (Input.GetKey(KeyCode.RightArrow))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x + 4, gameObject.transform.position.y, gameObject.transform.position.z);
+                                turnDirection = 4;
+                                isMoving = true;
+                            }
                         }
                     }
-                    if (playerNumber == 2)
+                    // SWAPPED CONTROLS
+                    else
                     {
-                        if (Input.GetKey(KeyCode.T))
+                        if (playerNumber == 1)
                         {
-                            placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 4);
-                            turnDirection = 1;
-                            isMoving = true;
-                        }
+                            if (Input.GetKey(KeyCode.G))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 4);
+                                turnDirection = 1;
+                                isMoving = true;
+                            }
 
-                        if (Input.GetKey(KeyCode.F))
-                        {
-                            placeToMoveTo = new Vector3(gameObject.transform.position.x - 4, gameObject.transform.position.y, gameObject.transform.position.z);
-                            turnDirection = 3;
-                            isMoving = true;
-                        }
+                            if (Input.GetKey(KeyCode.D))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x - 4, gameObject.transform.position.y, gameObject.transform.position.z);
+                                turnDirection = 3;
+                                isMoving = true;
+                            }
 
-                        if (Input.GetKey(KeyCode.G))
-                        {
-                            placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 4);
-                            turnDirection = 2;
-                            isMoving = true;
-                        }
+                            if (Input.GetKey(KeyCode.LeftArrow))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 4);
+                                turnDirection = 2;
+                                isMoving = true;
+                            }
 
-                        if (Input.GetKey(KeyCode.H))
-                        {
-                            placeToMoveTo = new Vector3(gameObject.transform.position.x + 4, gameObject.transform.position.y, gameObject.transform.position.z);
-                            turnDirection = 4;
-                            isMoving = true;
+                            if (Input.GetKey(KeyCode.J))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x + 4, gameObject.transform.position.y, gameObject.transform.position.z);
+                                turnDirection = 4;
+                                isMoving = true;
+                            }
                         }
-                    }
-                    if (playerNumber == 3)
-                    {
-                        if (Input.GetKey(KeyCode.I))
+                        if (playerNumber == 2)
                         {
-                            placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 4);
-                            turnDirection = 1;
-                            isMoving = true;
-                        }
+                            if (Input.GetKey(KeyCode.A))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 4);
+                                turnDirection = 1;
+                                isMoving = true;
+                            }
 
-                        if (Input.GetKey(KeyCode.J))
-                        {
-                            placeToMoveTo = new Vector3(gameObject.transform.position.x - 4, gameObject.transform.position.y, gameObject.transform.position.z);
-                            turnDirection = 3;
-                            isMoving = true;
-                        }
+                            if (Input.GetKey(KeyCode.T))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x - 4, gameObject.transform.position.y, gameObject.transform.position.z);
+                                turnDirection = 3;
+                                isMoving = true;
+                            }
 
-                        if (Input.GetKey(KeyCode.K))
-                        {
-                            placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 4);
-                            turnDirection = 2;
-                            isMoving = true;
-                        }
+                            if (Input.GetKey(KeyCode.DownArrow))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 4);
+                                turnDirection = 2;
+                                isMoving = true;
+                            }
 
-                        if (Input.GetKey(KeyCode.L))
-                        {
-                            placeToMoveTo = new Vector3(gameObject.transform.position.x + 4, gameObject.transform.position.y, gameObject.transform.position.z);
-                            turnDirection = 4;
-                            isMoving = true;
+                            if (Input.GetKey(KeyCode.RightArrow))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x + 4, gameObject.transform.position.y, gameObject.transform.position.z);
+                                turnDirection = 4;
+                                isMoving = true;
+                            }
                         }
-                    }
-                    if (playerNumber == 4)
-                    {
-                        if (Input.GetKey(KeyCode.UpArrow))
+                        if (playerNumber == 3)
                         {
-                            placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 4);
-                            turnDirection = 1;
-                            isMoving = true;
-                        }
+                            if (Input.GetKey(KeyCode.F))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 4);
+                                turnDirection = 1;
+                                isMoving = true;
+                            }
 
-                        if (Input.GetKey(KeyCode.LeftArrow))
-                        {
-                            placeToMoveTo = new Vector3(gameObject.transform.position.x - 4, gameObject.transform.position.y, gameObject.transform.position.z);
-                            turnDirection = 3;
-                            isMoving = true;
-                        }
+                            if (Input.GetKey(KeyCode.S))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x - 4, gameObject.transform.position.y, gameObject.transform.position.z);
+                                turnDirection = 3;
+                                isMoving = true;
+                            }
 
-                        if (Input.GetKey(KeyCode.DownArrow))
-                        {
-                            placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 4);
-                            turnDirection = 2;
-                            isMoving = true;
-                        }
+                            if (Input.GetKey(KeyCode.I))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 4);
+                                turnDirection = 2;
+                                isMoving = true;
+                            }
 
-                        if (Input.GetKey(KeyCode.RightArrow))
+                            if (Input.GetKey(KeyCode.L))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x + 4, gameObject.transform.position.y, gameObject.transform.position.z);
+                                turnDirection = 4;
+                                isMoving = true;
+                            }
+                        }
+                        if (playerNumber == 4)
                         {
-                            placeToMoveTo = new Vector3(gameObject.transform.position.x + 4, gameObject.transform.position.y, gameObject.transform.position.z);
-                            turnDirection = 4;
-                            isMoving = true;
+                            if (Input.GetKey(KeyCode.H))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 4);
+                                turnDirection = 1;
+                                isMoving = true;
+                            }
+
+                            if (Input.GetKey(KeyCode.UpArrow))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x - 4, gameObject.transform.position.y, gameObject.transform.position.z);
+                                turnDirection = 3;
+                                isMoving = true;
+                            }
+
+                            if (Input.GetKey(KeyCode.W))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 4);
+                                turnDirection = 2;
+                                isMoving = true;
+                            }
+
+                            if (Input.GetKey(KeyCode.K))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x + 4, gameObject.transform.position.y, gameObject.transform.position.z);
+                                turnDirection = 4;
+                                isMoving = true;
+                            }
                         }
                     }
                 }

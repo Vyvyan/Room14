@@ -21,13 +21,18 @@ public class Movement : MonoBehaviour {
     Vector3 UProt, DOWNrot, LEFTrot, RIGHTrot;
     int turnDirection; // 0none, 1up 2down 3left 4right
 
-    public GameObject winTile1, winTile2, winTile3;
+    public GameManager gameManager;
+
+    public GameObject mazeCompleteLightObject;
+    public Material mazeCompleteLightMaterial;
 
     Animator anim;
 
     public GameObject[] scriptObjectsToReset;
 
     public ParticleSystem shockEffect;
+
+    Vector3 lightRotationOnWin = new Vector3(145, 0, 0);
 
 	// Use this for initialization
 	void Start ()
@@ -60,12 +65,12 @@ public class Movement : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        
         if (turnWinTiles)
         {
-            winTile1.transform.rotation = Quaternion.SlerpUnclamped(winTile1.transform.rotation, Quaternion.Euler(Vector3.zero), winTileSpinSpeed * Time.deltaTime);
-            winTile2.transform.rotation = Quaternion.SlerpUnclamped(winTile2.transform.rotation, Quaternion.Euler(Vector3.zero), (winTileSpinSpeed * .8f) * Time.deltaTime);
-            winTile3.transform.rotation = Quaternion.SlerpUnclamped(winTile3.transform.rotation, Quaternion.Euler(Vector3.zero), (winTileSpinSpeed * 1.3f) * Time.deltaTime);
+            normalLIGHT.transform.rotation = Quaternion.SlerpUnclamped(normalLIGHT.transform.rotation, Quaternion.Euler(lightRotationOnWin), winTileSpinSpeed * Time.deltaTime);
         }
+        
 
         if (!isDead)
         {
@@ -377,6 +382,7 @@ public class Movement : MonoBehaviour {
                 hasWon = true;
                 anim.SetTrigger("Win");
                 StartCoroutine(WaitThenChangeLights());
+                Win();
             }
         }
     }
@@ -397,7 +403,30 @@ public class Movement : MonoBehaviour {
 
     IEnumerator WaitThenChangeLights()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         turnWinTiles = true;
+    }
+
+    void Win()
+    {
+        // turn on the "light" of the completion object
+        mazeCompleteLightObject.GetComponent<Renderer>().material = mazeCompleteLightMaterial;
+
+        if (playerNumber == 1)
+        {
+            gameManager.easyMazesComplete++;
+        }
+        else if (playerNumber == 2)
+        {
+            gameManager.easyMazesComplete++;
+        }
+        else if (playerNumber == 3)
+        {
+            gameManager.hardMazesComplete++;
+        }
+        else if (playerNumber == 4)
+        {
+            gameManager.hardMazesComplete++;
+        }
     }
 }

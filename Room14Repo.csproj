@@ -230,6 +230,7 @@
     <Compile Include="Assets\FX Mega Pack\Scripts\RotateY.cs" />
     <Compile Include="Assets\FX Mega Pack\Scripts\SmoothCameraOrbit.cs" />
     <Compile Include="Assets\GameManager.cs" />
+    <Compile Include="Assets\LetterBlocks.cs" />
     <Compile Include="Assets\Movement.cs" />
     <Compile Include="Assets\MovingWall.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
@@ -336,6 +337,7 @@
     <None Include="Assets\PrimitivePlus\Documentation\ReadMe.txt" />
     <None Include="Assets\Rat\rat animation data.txt" />
     <None Include="Assets\Shaders\MatCAp.shader" />
+    <None Include="Assets\Speakers PBR\Readme.txt" />
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />

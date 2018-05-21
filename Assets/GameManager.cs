@@ -31,21 +31,17 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-		if (Input.GetKeyDown(KeyCode.Alpha1))
+		if (Input.GetKeyDown(KeyCode.Escape))
         {
-            overHeadCamera.transform.position = camPOS1;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            overHeadCamera.transform.position = camPOS2;
+            Application.Quit();
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha5))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha8))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             areControlsSwapped = !areControlsSwapped;
         }

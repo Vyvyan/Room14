@@ -65,11 +65,12 @@ public class Movement : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        
+        /*
         if (turnWinTiles)
         {
             normalLIGHT.transform.rotation = Quaternion.SlerpUnclamped(normalLIGHT.transform.rotation, Quaternion.Euler(lightRotationOnWin), winTileSpinSpeed * Time.deltaTime);
         }
+        */
         
 
         if (!isDead)
@@ -114,28 +115,28 @@ public class Movement : MonoBehaviour {
                     {
                         if (playerNumber == 1)
                         {
-                            if (Input.GetKey(KeyCode.W))
+                            if (Input.GetKeyDown(KeyCode.W))
                             {
                                 placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 4);
                                 turnDirection = 1;
                                 isMoving = true;
                             }
 
-                            if (Input.GetKey(KeyCode.A))
+                            if (Input.GetKeyDown(KeyCode.A))
                             {
                                 placeToMoveTo = new Vector3(gameObject.transform.position.x - 4, gameObject.transform.position.y, gameObject.transform.position.z);
                                 turnDirection = 3;
                                 isMoving = true;
                             }
 
-                            if (Input.GetKey(KeyCode.S))
+                            if (Input.GetKeyDown(KeyCode.S))
                             {
                                 placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 4);
                                 turnDirection = 2;
                                 isMoving = true;
                             }
 
-                            if (Input.GetKey(KeyCode.D))
+                            if (Input.GetKeyDown(KeyCode.D))
                             {
                                 placeToMoveTo = new Vector3(gameObject.transform.position.x + 4, gameObject.transform.position.y, gameObject.transform.position.z);
                                 turnDirection = 4;
@@ -238,28 +239,28 @@ public class Movement : MonoBehaviour {
                     {
                         if (playerNumber == 1)
                         {
-                            if (Input.GetKey(KeyCode.G))
+                            if (Input.GetButtonDown("Maze1_Up"))
                             {
                                 placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 4);
                                 turnDirection = 1;
                                 isMoving = true;
                             }
 
-                            if (Input.GetKey(KeyCode.D))
+                            if (Input.GetButtonDown("Maze1_Left"))
                             {
                                 placeToMoveTo = new Vector3(gameObject.transform.position.x - 4, gameObject.transform.position.y, gameObject.transform.position.z);
                                 turnDirection = 3;
                                 isMoving = true;
                             }
 
-                            if (Input.GetKey(KeyCode.LeftArrow))
+                            if (Input.GetButtonDown("Maze1_Down"))
                             {
                                 placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 4);
                                 turnDirection = 2;
                                 isMoving = true;
                             }
 
-                            if (Input.GetKey(KeyCode.J))
+                            if (Input.GetButtonDown("Maze1_Right"))
                             {
                                 placeToMoveTo = new Vector3(gameObject.transform.position.x + 4, gameObject.transform.position.y, gameObject.transform.position.z);
                                 turnDirection = 4;
@@ -268,28 +269,28 @@ public class Movement : MonoBehaviour {
                         }
                         if (playerNumber == 2)
                         {
-                            if (Input.GetKey(KeyCode.A))
+                            if (Input.GetButtonDown("Maze2_Up"))
                             {
                                 placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 4);
                                 turnDirection = 1;
                                 isMoving = true;
                             }
 
-                            if (Input.GetKey(KeyCode.T))
+                            if (Input.GetButtonDown("Maze2_Left"))
                             {
                                 placeToMoveTo = new Vector3(gameObject.transform.position.x - 4, gameObject.transform.position.y, gameObject.transform.position.z);
                                 turnDirection = 3;
                                 isMoving = true;
                             }
 
-                            if (Input.GetKey(KeyCode.DownArrow))
+                            if (Input.GetButtonDown("Maze2_Down"))
                             {
                                 placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 4);
                                 turnDirection = 2;
                                 isMoving = true;
                             }
 
-                            if (Input.GetKey(KeyCode.RightArrow))
+                            if (Input.GetButtonDown("Maze2_Right"))
                             {
                                 placeToMoveTo = new Vector3(gameObject.transform.position.x + 4, gameObject.transform.position.y, gameObject.transform.position.z);
                                 turnDirection = 4;
@@ -298,28 +299,28 @@ public class Movement : MonoBehaviour {
                         }
                         if (playerNumber == 3)
                         {
-                            if (Input.GetKey(KeyCode.F))
+                            if (Input.GetButtonDown("Maze3_Up"))
                             {
                                 placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 4);
                                 turnDirection = 1;
                                 isMoving = true;
                             }
 
-                            if (Input.GetKey(KeyCode.S))
+                            if (Input.GetButtonDown("Maze3_Left"))
                             {
                                 placeToMoveTo = new Vector3(gameObject.transform.position.x - 4, gameObject.transform.position.y, gameObject.transform.position.z);
                                 turnDirection = 3;
                                 isMoving = true;
                             }
 
-                            if (Input.GetKey(KeyCode.I))
+                            if (Input.GetButtonDown("Maze3_Down"))
                             {
                                 placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 4);
                                 turnDirection = 2;
                                 isMoving = true;
                             }
 
-                            if (Input.GetKey(KeyCode.L))
+                            if (Input.GetButtonDown("Maze3_Right"))
                             {
                                 placeToMoveTo = new Vector3(gameObject.transform.position.x + 4, gameObject.transform.position.y, gameObject.transform.position.z);
                                 turnDirection = 4;
@@ -328,28 +329,28 @@ public class Movement : MonoBehaviour {
                         }
                         if (playerNumber == 4)
                         {
-                            if (Input.GetKey(KeyCode.H))
+                            if (Input.GetButtonDown("Maze4_Up"))
                             {
                                 placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 4);
                                 turnDirection = 1;
                                 isMoving = true;
                             }
 
-                            if (Input.GetKey(KeyCode.UpArrow))
+                            if (Input.GetButtonDown("Maze4_Left"))
                             {
                                 placeToMoveTo = new Vector3(gameObject.transform.position.x - 4, gameObject.transform.position.y, gameObject.transform.position.z);
                                 turnDirection = 3;
                                 isMoving = true;
                             }
 
-                            if (Input.GetKey(KeyCode.W))
+                            if (Input.GetButtonDown("Maze4_Down"))
                             {
                                 placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 4);
                                 turnDirection = 2;
                                 isMoving = true;
                             }
 
-                            if (Input.GetKey(KeyCode.K))
+                            if (Input.GetButtonDown("Maze4_Right"))
                             {
                                 placeToMoveTo = new Vector3(gameObject.transform.position.x + 4, gameObject.transform.position.y, gameObject.transform.position.z);
                                 turnDirection = 4;
@@ -404,7 +405,8 @@ public class Movement : MonoBehaviour {
     IEnumerator WaitThenChangeLights()
     {
         yield return new WaitForSeconds(2);
-        turnWinTiles = true;
+        //turnWinTiles = true;
+        StartCoroutine(MoveWinLightToBlockLetters());
     }
 
     void Win()
@@ -428,5 +430,12 @@ public class Movement : MonoBehaviour {
         {
             gameManager.hardMazesComplete++;
         }
+    }
+
+    IEnumerator MoveWinLightToBlockLetters()
+    {
+        normalLIGHT.SetActive(false);
+        yield return new WaitForSeconds(2);
+        winLIGHT.SetActive(true);
     }
 }

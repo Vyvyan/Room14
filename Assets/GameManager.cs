@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour {
 
     IEnumerator WaitThenFlipHardBlocks()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         foreach (LetterBlocks block in hardLB)
         {
             block.flip = true;

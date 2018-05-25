@@ -283,6 +283,7 @@
     <Compile Include="Assets\PrimitivePlus\Scripts\PrimitivePlusMeshes.cs" />
     <Compile Include="Assets\PrimitivePlus\Scripts\PrimitivePlusObject.cs" />
     <Compile Include="Assets\PrimitivePlus\Scripts\PrimitivePlusType.cs" />
+    <Compile Include="Assets\SetupMultiMon.cs" />
     <Compile Include="Assets\Spinner.cs" />
     <Compile Include="Assets\Switch.cs" />
     <Compile Include="Assets\Switch_purple.cs" />

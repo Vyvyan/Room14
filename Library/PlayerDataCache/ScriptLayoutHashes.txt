@@ -217,3 +217,4 @@ b3432dfe180f02232d7612fb366593d3 Assembly-CSharp-firstpass.dll:UnityStandardAsse
 3ae0dad0b55a80319e1d57c2dce28da7 Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.Tonemapping
 0078d3d4b9287a4b29f448318c17c27d Assembly-CSharp.dll:.Switch_purple
 0f3d4bb7128a287827d041c696039525 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Utility.AutoMobileShaderSwitch
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.SetupMultiMon

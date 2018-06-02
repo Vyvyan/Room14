@@ -16,11 +16,16 @@ public class GameManager : MonoBehaviour {
 
     bool hasTurnedEasyBlocks, hasTurnedHardBlocks;
 
+    public GameObject easyWinImage, hardWinImage;
+
 	// Use this for initialization
 	void Start ()
     {
         camPOS1 = new Vector3(-24f, 30, -1.5f);
         camPOS2 = new Vector3(43.5f, 30, -1.5f);
+
+        easyWinImage.SetActive(false);
+        hardWinImage.SetActive(false);
 
         areControlsSwapped = true;
 
@@ -68,19 +73,25 @@ public class GameManager : MonoBehaviour {
 
     IEnumerator WaitThenFlipEasyBlocks()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
+        /*
         foreach (LetterBlocks block in easyLB)
         {
             block.flip = true;
         }
+        */
+        easyWinImage.SetActive(true);
     }
 
     IEnumerator WaitThenFlipHardBlocks()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
+        /*
         foreach (LetterBlocks block in hardLB)
         {
             block.flip = true;
         }
+        */
+        hardWinImage.SetActive(true);
     }
 }

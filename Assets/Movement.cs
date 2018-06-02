@@ -11,7 +11,7 @@ public class Movement : MonoBehaviour {
     public Quaternion startingROT;
     public Vector3 placeToMoveTo;
     public GameObject winImage;
-    public GameObject winLIGHT, normalLIGHT, ratLIGHT;
+    public GameObject normalLIGHT, ratLIGHT;
     public bool isMoving;
     bool hasWon;
     bool isDead;
@@ -37,9 +37,8 @@ public class Movement : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        winLIGHT.SetActive(false);
         winImage.SetActive(false);
-        normalLIGHT.SetActive(true);
+        //normalLIGHT.SetActive(true);
         ratLIGHT.SetActive(true);
 
         startingPOS = gameObject.transform.position;
@@ -115,28 +114,28 @@ public class Movement : MonoBehaviour {
                     {
                         if (playerNumber == 1)
                         {
-                            if (Input.GetKeyDown(KeyCode.D))
+                            if (Input.GetKeyDown(KeyCode.X))
                             {
                                 placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 4);
                                 turnDirection = 1;
                                 isMoving = true;
                             }
 
-                            if (Input.GetKeyDown(KeyCode.W))
+                            if (Input.GetKeyDown(KeyCode.C))
                             {
                                 placeToMoveTo = new Vector3(gameObject.transform.position.x - 4, gameObject.transform.position.y, gameObject.transform.position.z);
                                 turnDirection = 3;
                                 isMoving = true;
                             }
 
-                            if (Input.GetKeyDown(KeyCode.A))
+                            if (Input.GetKeyDown(KeyCode.Z))
                             {
                                 placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 4);
                                 turnDirection = 2;
                                 isMoving = true;
                             }
 
-                            if (Input.GetKeyDown(KeyCode.S))
+                            if (Input.GetKeyDown(KeyCode.V))
                             {
                                 placeToMoveTo = new Vector3(gameObject.transform.position.x + 4, gameObject.transform.position.y, gameObject.transform.position.z);
                                 turnDirection = 4;
@@ -144,66 +143,6 @@ public class Movement : MonoBehaviour {
                             }
                         }
                         if (playerNumber == 2)
-                        {
-                            if (Input.GetKey(KeyCode.H))
-                            {
-                                placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 4);
-                                turnDirection = 1;
-                                isMoving = true;
-                            }
-
-                            if (Input.GetKey(KeyCode.T))
-                            {
-                                placeToMoveTo = new Vector3(gameObject.transform.position.x - 4, gameObject.transform.position.y, gameObject.transform.position.z);
-                                turnDirection = 3;
-                                isMoving = true;
-                            }
-
-                            if (Input.GetKey(KeyCode.F))
-                            {
-                                placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 4);
-                                turnDirection = 2;
-                                isMoving = true;
-                            }
-
-                            if (Input.GetKey(KeyCode.G))
-                            {
-                                placeToMoveTo = new Vector3(gameObject.transform.position.x + 4, gameObject.transform.position.y, gameObject.transform.position.z);
-                                turnDirection = 4;
-                                isMoving = true;
-                            }
-                        }
-                        if (playerNumber == 3)
-                        {
-                            if (Input.GetKey(KeyCode.L))
-                            {
-                                placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 4);
-                                turnDirection = 1;
-                                isMoving = true;
-                            }
-
-                            if (Input.GetKey(KeyCode.I))
-                            {
-                                placeToMoveTo = new Vector3(gameObject.transform.position.x - 4, gameObject.transform.position.y, gameObject.transform.position.z);
-                                turnDirection = 3;
-                                isMoving = true;
-                            }
-
-                            if (Input.GetKey(KeyCode.J))
-                            {
-                                placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 4);
-                                turnDirection = 2;
-                                isMoving = true;
-                            }
-
-                            if (Input.GetKey(KeyCode.K))
-                            {
-                                placeToMoveTo = new Vector3(gameObject.transform.position.x + 4, gameObject.transform.position.y, gameObject.transform.position.z);
-                                turnDirection = 4;
-                                isMoving = true;
-                            }
-                        }
-                        if (playerNumber == 4)
                         {
                             if (Input.GetKey(KeyCode.RightArrow))
                             {
@@ -227,6 +166,66 @@ public class Movement : MonoBehaviour {
                             }
 
                             if (Input.GetKey(KeyCode.DownArrow))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x + 4, gameObject.transform.position.y, gameObject.transform.position.z);
+                                turnDirection = 4;
+                                isMoving = true;
+                            }
+                        }
+                        if (playerNumber == 3)
+                        {
+                            if (Input.GetKey(KeyCode.H))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 4);
+                                turnDirection = 1;
+                                isMoving = true;
+                            }
+
+                            if (Input.GetKey(KeyCode.I))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x - 4, gameObject.transform.position.y, gameObject.transform.position.z);
+                                turnDirection = 3;
+                                isMoving = true;
+                            }
+
+                            if (Input.GetKey(KeyCode.F))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 4);
+                                turnDirection = 2;
+                                isMoving = true;
+                            }
+
+                            if (Input.GetKey(KeyCode.G))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x + 4, gameObject.transform.position.y, gameObject.transform.position.z);
+                                turnDirection = 4;
+                                isMoving = true;
+                            }
+                        }
+                        if (playerNumber == 4)
+                        {
+                            if (Input.GetKey(KeyCode.L))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 4);
+                                turnDirection = 1;
+                                isMoving = true;
+                            }
+
+                            if (Input.GetKey(KeyCode.T))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x - 4, gameObject.transform.position.y, gameObject.transform.position.z);
+                                turnDirection = 3;
+                                isMoving = true;
+                            }
+
+                            if (Input.GetKey(KeyCode.J))
+                            {
+                                placeToMoveTo = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 4);
+                                turnDirection = 2;
+                                isMoving = true;
+                            }
+
+                            if (Input.GetKey(KeyCode.K))
                             {
                                 placeToMoveTo = new Vector3(gameObject.transform.position.x + 4, gameObject.transform.position.y, gameObject.transform.position.z);
                                 turnDirection = 4;
@@ -411,8 +410,10 @@ public class Movement : MonoBehaviour {
 
     void Win()
     {
+        /*
         // turn on the "light" of the completion object
         mazeCompleteLightObject.GetComponent<Renderer>().material = mazeCompleteLightMaterial;
+        */
 
         if (playerNumber == 1)
         {
@@ -434,8 +435,12 @@ public class Movement : MonoBehaviour {
 
     IEnumerator MoveWinLightToBlockLetters()
     {
+        /*
         normalLIGHT.SetActive(false);
         yield return new WaitForSeconds(2);
         winLIGHT.SetActive(true);
+        */
+
+        yield return new WaitForSeconds(2);
     }
 }

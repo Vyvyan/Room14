@@ -52,17 +52,13 @@ public class GameManager : MonoBehaviour {
         }
 
         // letter blocks
-        if (easyMazesComplete >= 2)
+        if (easyMazesComplete + hardMazesComplete >= 4)
         {
             if (!hasTurnedEasyBlocks)
             {
                 StartCoroutine(WaitThenFlipEasyBlocks());
                 hasTurnedEasyBlocks = true;
             }
-        }
-
-        if (hardMazesComplete >= 2)
-        {
             if (!hasTurnedHardBlocks)
             {
                 StartCoroutine(WaitThenFlipHardBlocks());

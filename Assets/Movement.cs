@@ -405,6 +405,7 @@ public class Movement : MonoBehaviour {
     {
         yield return new WaitForSeconds(2);
         //turnWinTiles = true;
+        winImage.SetActive(true);
         StartCoroutine(MoveWinLightToBlockLetters());
     }
 
